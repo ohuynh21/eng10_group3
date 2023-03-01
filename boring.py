@@ -8,13 +8,19 @@ from time import sleep
 import simpleio
 import time
 from adafruit_hcsr04 import HCSR04
+
+        
 # Setup Section
+
 pwm = pwmio.PWMOut(board.A3, frequency=50)
 servo = adafruit_motor.servo.Servo(pwm, min_pulse=750, max_pulse=2600)
 cp.detect_taps = 2
 
+
 # User Specified Max Time (minutes)
+
 MAX = 0.5
+
 # Timer Variables
 MAX_TIME = MAX * 60
 timer = 0
@@ -101,7 +107,7 @@ while True:
                     cp.play_tone(470, 0.15)
                 break
         #play the ringtome    
-        t = time.time() + 4
+        t = time.time() + 5
         while time.time() < t:
             cp.play_tone(470, 0.15)
             cp.play_tone(570, 0.15)
@@ -111,7 +117,7 @@ while True:
         timer = 0
         
         cp.pixels[0] = (255,0,0)
-
+    
         cp.pixels[1] = (0,255,0)
     
         cp.pixels[2] = (0,255,255)
@@ -122,7 +128,7 @@ while True:
         cp.pixels[7] = (180,0,255)
         cp.pixels[8] = (255,255,0)
         cp.pixels[9] = (0,255,0)
-        sleep(1.5)
+        sleep(0.5)
       
         cp.pixels.fill((0,0,0))
         print("UNLOCKED")
