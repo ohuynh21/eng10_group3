@@ -99,7 +99,7 @@ while True:
                 #and cp.touch_TX and cp.touch_A5 and cp.touch_A6
                 #overrides
             #play the ringtome
-            t = time.time() + 1
+            t = time.time() + 5
             while time.time() < t:
                 cp.play_tone(470, 0.15)
                 cp.play_tone(570, 0.15)
