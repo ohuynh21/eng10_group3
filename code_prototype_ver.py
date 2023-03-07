@@ -20,7 +20,7 @@ timer = 0
 interval = 0
 count = 0
 cp.pixels.brightness = 0.1
-x = 0
+freq_boost = 0
 # Loop Section
 
 while True:
@@ -32,8 +32,8 @@ while True:
         cp.pixels.fill((0,0,0))
     # SET LOCK DURATION
     if (cp.button_a and timer < MAX_TIME):
-        cp.play_tone(460+x, 0.15)
-        x += 10
+        cp.play_tone(460 + freq_boost, 0.15)
+        freq_boost += 10
         timer += MAX_TIME/10
         interval += 1
         cp.pixels[interval-1] = (0, 255, 0)
@@ -64,6 +64,7 @@ while True:
         # UNLOCK
         servo.angle = 0
         timer = 0
+        freq_boost = 0
         cp.pixels.fill((0,255,0))
         sleep(0.5)
         cp.pixels.fill((0,0,0))
